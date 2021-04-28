@@ -1,5 +1,7 @@
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:inonepage_landing/widgets/animation_logo.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HeaderSection extends StatelessWidget {
   @override
@@ -29,27 +31,51 @@ class DesktopHeaderSection extends StatelessWidget {
             children: <Widget>[
               AnimationLogo(),
               Row(children: <Widget>[
-                TextButton(
-                    style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      padding: EdgeInsets.all(0.0),
-                    ),
-                    onPressed: () {},
-                    child: Image.asset('assets/images/youtube_play.png')),
-                TextButton(
-                    style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      padding: EdgeInsets.all(0.0),
-                    ),
-                    onPressed: () {},
-                    child: Image.asset('assets/images/github_square.png')),
-                TextButton(
-                    style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      padding: EdgeInsets.all(0.0),
-                    ),
-                    onPressed: () {},
-                    child: Image.asset('assets/images/linkedin_rect.png')),
+                AvatarGlow(
+                  glowColor: Colors.white,
+                  endRadius: 40.0,
+                  duration: Duration(milliseconds: 4000),
+                  repeat: true,
+                  showTwoGlows: true,
+                  repeatPauseDuration: Duration(milliseconds: 100),
+                  child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                        padding: EdgeInsets.all(0.0),
+                      ),
+                      onPressed: _launchYoutube,
+                      child: Image.asset('assets/images/youtube_play.png')),
+                ),
+                AvatarGlow(
+                  glowColor: Colors.white,
+                  endRadius: 40.0,
+                  duration: Duration(milliseconds: 4000),
+                  repeat: true,
+                  showTwoGlows: true,
+                  repeatPauseDuration: Duration(milliseconds: 100),
+                  child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                        padding: EdgeInsets.all(0.0),
+                      ),
+                      onPressed: _launchGithub,
+                      child: Image.asset('assets/images/github_square.png')),
+                ),
+                AvatarGlow(
+                  glowColor: Colors.white,
+                  endRadius: 40.0,
+                  duration: Duration(milliseconds: 4000),
+                  repeat: true,
+                  showTwoGlows: true,
+                  repeatPauseDuration: Duration(milliseconds: 100),
+                  child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                        padding: EdgeInsets.all(0.0),
+                      ),
+                      onPressed: _launchLinkedIn,
+                      child: Image.asset('assets/images/linkedin_rect.png')),
+                ),
               ]),
             ]),
       ),
@@ -75,29 +101,54 @@ class MobileHeaderSection extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Row(children: <Widget>[
-                      TextButton(
-                          style: TextButton.styleFrom(
-                            primary: Colors.white,
-                            padding: EdgeInsets.all(0.0),
-                          ),
-                          onPressed: () {},
-                          child: Image.asset('assets/images/youtube_play.png')),
-                      TextButton(
-                          style: TextButton.styleFrom(
-                            primary: Colors.white,
-                            padding: EdgeInsets.all(0.0),
-                          ),
-                          onPressed: () {},
-                          child:
-                              Image.asset('assets/images/github_square.png')),
-                      TextButton(
-                          style: TextButton.styleFrom(
-                            primary: Colors.white,
-                            padding: EdgeInsets.all(0.0),
-                          ),
-                          onPressed: () {},
-                          child:
-                              Image.asset('assets/images/linkedin_rect.png')),
+                      AvatarGlow(
+                        glowColor: Colors.white,
+                        endRadius: 40.0,
+                        duration: Duration(milliseconds: 4000),
+                        repeat: true,
+                        showTwoGlows: true,
+                        repeatPauseDuration: Duration(milliseconds: 100),
+                        child: TextButton(
+                            style: TextButton.styleFrom(
+                              primary: Colors.white,
+                              padding: EdgeInsets.all(0.0),
+                            ),
+                            onPressed: _launchYoutube,
+                            child:
+                                Image.asset('assets/images/youtube_play.png')),
+                      ),
+                      AvatarGlow(
+                        glowColor: Colors.white,
+                        endRadius: 40.0,
+                        duration: Duration(milliseconds: 4000),
+                        repeat: true,
+                        showTwoGlows: true,
+                        repeatPauseDuration: Duration(milliseconds: 100),
+                        child: TextButton(
+                            style: TextButton.styleFrom(
+                              primary: Colors.white,
+                              padding: EdgeInsets.all(0.0),
+                            ),
+                            onPressed: _launchGithub,
+                            child:
+                                Image.asset('assets/images/github_square.png')),
+                      ),
+                      AvatarGlow(
+                        glowColor: Colors.white,
+                        endRadius: 40.0,
+                        duration: Duration(milliseconds: 4000),
+                        repeat: true,
+                        showTwoGlows: true,
+                        repeatPauseDuration: Duration(milliseconds: 100),
+                        child: TextButton(
+                            style: TextButton.styleFrom(
+                              primary: Colors.white,
+                              padding: EdgeInsets.all(0.0),
+                            ),
+                            onPressed: _launchLinkedIn,
+                            child:
+                                Image.asset('assets/images/linkedin_rect.png')),
+                      ),
                     ]),
                   ],
                 ),
@@ -105,5 +156,32 @@ class MobileHeaderSection extends StatelessWidget {
             ]),
       ),
     );
+  }
+}
+
+_launchYoutube() async {
+  const url = 'https://www.youtube.com/channel/UCMA0bvN4WhuDCRvZzDx4qcQ';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_launchGithub() async {
+  const url = 'https://github.com/WayneInwonHan';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_launchLinkedIn() async {
+  const url = 'https://www.linkedin.com/in/wayne-inwon-han';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }

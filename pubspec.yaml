@@ -1,5 +1,6 @@
 name: inonepage_landing
-description: A new Flutter project.
+description: This space is Inwon Wayne Han's portfolio website sample. This file includes a header, landing, footer only.
+
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -15,6 +16,9 @@ dependencies:
   
   cupertino_icons: ^1.0.2
   simple_animations: ^3.0.3
+  url_launcher: ^6.0.2
+  avatar_glow: ^2.0.1
+  assets_audio_player: ^2.0.13+8
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +41,7 @@ flutter:
     - assets/images/linkedin_rect.png
     - assets/images/wayne_main_image.jpg
     - assets/images/youtube_play.png
+    - assets/audios/inwonhan_voice.mp3
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
