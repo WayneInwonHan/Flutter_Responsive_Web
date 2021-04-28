@@ -1,17 +1,16 @@
 import 'dart:math';
-import 'package:inonepage_landing/sections/S0_headerSection/S0_header_section.dart';
-import 'package:inonepage_landing/sections/S1_landingSection/S1_landing_section.dart';
-import 'package:inonepage_landing/sections/S2_footerSection/S2_footer_section.dart';
-import 'package:supercharged/supercharged.dart';
 import 'package:flutter/material.dart';
+import 'package:inonepage_landing/page404_content.dart';
+import 'package:inonepage_landing/sections/S0_headerSection/S0_header_section.dart';
 import 'package:simple_animations/simple_animations.dart';
+import 'package:supercharged/supercharged.dart';
 
-class MyHomePage extends StatefulWidget {
+class NotFoundPage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _NotFoundPageState createState() => _NotFoundPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _NotFoundPageState extends State<NotFoundPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,24 +50,12 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(
                     vertical: 30.0, horizontal: 30.0),
-                child: LandingPage(),
+                child: NotFoundContent(),
               ),
-              FooterSection(),
+              SizedBox(height: 200),
             ]),
           ),
         ]),
-      ),
-      floatingActionButton: FloatingActionButton(
-        elevation: 10,
-        heroTag: "star",
-        onPressed: () {},
-        splashColor: Colors.white,
-        hoverColor: Colors.grey.withOpacity(.25),
-        backgroundColor: Colors.white,
-        child: Icon(
-          Icons.star,
-          color: Color.fromRGBO(45, 0, 70, 1.0),
-        ),
       ),
     );
   }

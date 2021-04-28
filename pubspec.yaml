@@ -41,7 +41,9 @@ flutter:
     - assets/images/linkedin_rect.png
     - assets/images/wayne_main_image.jpg
     - assets/images/youtube_play.png
+    - assets/images/flutter_logo.png
     - assets/audios/inwonhan_voice.mp3
+    - assets/images/notfound404_cat.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
